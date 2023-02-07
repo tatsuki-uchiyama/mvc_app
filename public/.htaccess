@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine ON
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
+
+# このように記述しておくことで存在しないファイルを参照された場合に代わりに
+# index.phpを読むようにすることができるためすべてのケースでindex.phpを読ませている。
+# 詳しい記述の意味は各自で調べてみてください。
