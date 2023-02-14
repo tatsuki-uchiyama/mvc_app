@@ -23,7 +23,7 @@
 		background-color: #FFEFD5;
 	}
 
-	.container-fruid {
+	.container-field {
 		margin: 0 auto !important;
 		min-height: 100vh;
 	}
@@ -173,17 +173,6 @@
 		margin-top:50px;
 		margin-bottom:50px;
 	}
-	/* 入力フォーム用 */
-	.form-area{
-		margin: 10px 35%;
-	}
-	.form-area input, textarea, button{
-		width:100%;
-	}
-	.form-area textarea{
-		height: max-content;
-	}
-
 
 	/* ----contact_confirm.php------- */
 	.button-table{
@@ -201,8 +190,6 @@
 
 	/* -------footer------ */
 	.footer-area{
-		position: absolute;
-		bottom: 0;
 		width: 100%;
 	}
 

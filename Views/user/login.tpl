@@ -10,7 +10,7 @@
 </head>
 <body>
   <div class="main">
-    <div class="container-fruid">
+    <div class="container-field">
       <div class="form-wrapper">
         <h1>ログイン</h1>
         <form action="/user/certification" method="post">

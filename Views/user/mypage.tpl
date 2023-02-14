@@ -11,7 +11,7 @@
 
 <body>
 <div class="main">
-    <div class="container-fruid" >
+    <div class="container-field" >
         {include file="layout/header.tpl"}
             <div class="form-wrapper">
                 <h1>ユーザー情報</h1>

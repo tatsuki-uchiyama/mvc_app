@@ -29,7 +29,7 @@ class User extends Db
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_OBJ);
 
-            if($result->count === "0"){
+            if($result->count == 0){
                 // 重複がない場合は処理を続行
                 $this->dbh->beginTransaction();
                 $query = 'INSERT INTO users (name, kana, email, password) VALUES (:name, :kana, :email, :password)';

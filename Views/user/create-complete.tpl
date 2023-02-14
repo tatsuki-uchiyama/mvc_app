@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="main">
-    <div class="container-fruid" >
+    <div class="container-field" >
         {include file="layout/header.tpl"}
         <div class="complete-text-area center">
             <h2 class="index_level2 center margin-top-bottom_level2">登録完了</h2>
