@@ -9,7 +9,7 @@ class Db
     {
         if (!$dbh) { // 接続情報が存在しない場合
             try {
-                $this->dbh = new PDO('mysql:dbname=' . DB_NAME . ';host=' . DB_HOST, DB_USER, DB_PASSWD);
+                $this->dbh = new PDO('mysql:dbname=' . DB_NAME . ';host=' . DB_HOST, DB_USER, DB_PASSWD, [PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4"]);
                 // 接続成功
             } catch (PDOException $e) {
                 echo "接続失敗: " . $e->getMessage() . "\n";
