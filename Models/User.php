@@ -75,9 +75,7 @@ class User extends Db
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
-
-            if(count($result) === 1){
+            if(is_array($result) && count($result) === 1){
                 return $result;
             }else{
                 return false;

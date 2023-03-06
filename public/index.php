@@ -1,7 +1,7 @@
 <?php
-require_once('Smarty.class.php');
-require_once('../lib/route.php');
 define('ROOT_PATH', str_replace('public', '', $_SERVER['DOCUMENT_ROOT']));
+require_once(ROOT_PATH.'libs/Smarty.class.php');
+require_once(ROOT_PATH.'libs/route.php');
 
 if (empty($_SERVER['REQUEST_URI'])) {
     exit;

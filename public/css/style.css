@@ -162,31 +162,6 @@
 	opacity:1;
 	}
 
-	.center{
-		text-align: center;
-	}
-	.margin-top-bottom_level1{
-		margin-top:20px;
-		margin-bottom:20px;
-	}
-	.margin-top-bottom_level2{
-		margin-top:50px;
-		margin-bottom:50px;
-	}
-
-	/* ----contact_confirm.php------- */
-	.button-table{
-		border-collapse: separate;
-		border-spacing: 20px;
-		width:100%;
-	}
-	.button-table td{
-		width:50%;
-	}
-	/* ----contact_complete.php----*/
-	.complete-text-area {
-		height:75vh;
-	}
 
 	/* -------footer------ */
 	.footer-area{
@@ -284,4 +259,8 @@
 	.address-boxes {
 		display: none;
 	}
+}
+
+.form-orange {
+	background-color: #FFEFD5;
 }
