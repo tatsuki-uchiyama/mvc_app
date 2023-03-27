@@ -70,5 +70,6 @@ function route($path, $httpMethod)
     } catch (Throwable $e) {
         error_log($e->getMessage());
         header("HTTP/1.0 404 Not Found");
+        exit;
     }
 }

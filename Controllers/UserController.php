@@ -7,8 +7,8 @@ class UserController extends Controller
         if(is_numeric($this->getAuth())){
             // ログイン中の場合はトップページへリダイレクト
             header('Location: /');
+            exit;
         }
-
         $this->view('user/login');
     }
 
@@ -16,8 +16,8 @@ class UserController extends Controller
         if(is_numeric($this->getAuth())){
             // ログイン中の場合はトップページへリダイレクト
             header('Location: /');
+            exit;
         }
-
         $this->view('user/signup');
     }
 
@@ -94,6 +94,7 @@ class UserController extends Controller
                 session_start();
                 $_SESSION['auth'] = $result['id'];
                 header("Location: /");
+                exit;
             }else{
                 $errorMessages['auth'] = 'メールアドレスまたはパスワードが誤っています。';
                 $this->view('user/login', ['post' => $_POST, 'errorMessages' => $errorMessages]);
@@ -105,19 +106,20 @@ class UserController extends Controller
         session_start();
         $_SESSION['auth'] = false;
         header('Location: /');
+        exit;
     }
 
     public function myPage(){
         session_start();
         $userId = $_SESSION['auth'] ?? false;
         if($userId === false){
+            // 未ログインの場合はトップページへリダイレクト
             header('Location: /');
+            exit;
         }
-
-
+        
         $user = new User;
         $result = $user->getMyPage($userId);
-        error_log(json_encode($result));
         $this->view('user/mypage', ['data' => $result, 'auth' => $userId]);
     }
 
@@ -125,7 +127,9 @@ class UserController extends Controller
         session_start();
         $userId = $_SESSION['auth'] ?? false;
         if($userId === false){
+            // 未ログインの場合はトップページへリダイレクト
             header('Location: /');
+            exit;
         }
 
         $user = new User;
@@ -138,8 +142,9 @@ class UserController extends Controller
 
         $userId = $this->getAuth();
         if($userId === false){
-            // ログイン中の場合はトップページへリダイレクト
+            // 未ログインの場合はトップページへリダイレクト
             header('Location: /');
+            exit;
         }
 
         if(empty($_POST['name'])){
@@ -173,11 +178,12 @@ class UserController extends Controller
                 $_POST['name'],
                 $_POST['kana'],
                 $_POST['email'],
-                $_POST['password']
+                $_POST['password'] ?? ''
             );
 
             if($result === true){
                 header('Location: /user/my-page');
+                exit;
             }else{
                 $errorMessages['email'] = 'メールアドレスが既に使用されています。';
                 $this->view('user/edit', ['post' => $_POST, 'errorMessages' => $errorMessages, 'auth' => $userId]);
@@ -190,11 +196,13 @@ class UserController extends Controller
         $userId = $_SESSION['auth'] ?? false;
         if($userId === false){
             header('Location: /');
+            exit;
         }
         $user = new User;
         $user->deleteUserAccount($userId);
         $_SESSION['auth'] = false;
         header('Location: /');
+        exit;
     }
 
     /**

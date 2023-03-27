@@ -148,17 +148,17 @@ class User extends Db
                 $this->dbh->commit();
                 return true;
             }else{
-    // メールアドレス検索の結果重複していた場合はfalseを返却
-    return false;
-}
+            // メールアドレス検索の結果重複していた場合はfalseを返却
+            return false;
+        }
 
 
-} catch (PDOException $e) {
-    // 不具合があった場合トランザクションをロールバックして変更をなかったコトにする。
-    $this->dbh->rollBack();
-    echo "登録失敗: " . $e->getMessage() . "\n";
-    exit();
-}
+        } catch (PDOException $e) {
+            // 不具合があった場合トランザクションをロールバックして変更をなかったコトにする。
+            $this->dbh->rollBack();
+            echo "登録失敗: " . $e->getMessage() . "\n";
+            exit();
+        }
 
     }
 
